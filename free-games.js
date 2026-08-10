@@ -4,12 +4,22 @@
   var TARGET_URL = "https://www.gamerpower.com/api/giveaways?platform=epic-games-store,steam&type=game&sort-by=date";
 
   // GamerPower's API doesn't send CORS headers for browser fetches from
-  // custom domains, so we route through a public CORS proxy. Two are
-  // listed in case the first one is down or rate-limited.
+  // custom domains, so we route through a public CORS proxy. Multiple are
+  // listed because free proxies go down or rate-limit often — if one
+  // fails, the next is tried automatically.
+  //
+  // OPTIONAL BUT RECOMMENDED: if you deploy your own Cloudflare Worker
+  // (free, and far more reliable than public proxies), paste its URL
+  // here and it'll always be tried first.
+  var OWN_WORKER_URL = ""; // e.g. "https://free-games.yourname.workers.dev"
+
   var PROXIES = [
+    OWN_WORKER_URL,
     "https://api.allorigins.win/raw?url=" + encodeURIComponent(TARGET_URL),
-    "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(TARGET_URL)
-  ];
+    "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(TARGET_URL),
+    "https://thingproxy.freeboard.io/fetch/" + TARGET_URL,
+    "https://cors.eu.org/" + TARGET_URL
+  ].filter(Boolean);
 
   var epicEl = document.getElementById("epicGames");
   var steamEl = document.getElementById("steamGames");
@@ -69,9 +79,17 @@
     });
   }
 
+  function fetchWithTimeout(url, ms) {
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, ms);
+    return fetch(url, { signal: controller.signal }).finally(function () {
+      clearTimeout(timer);
+    });
+  }
+
   function tryProxy(i) {
     if (i >= PROXIES.length) return Promise.reject(new Error("all proxies failed"));
-    return fetch(PROXIES[i])
+    return fetchWithTimeout(PROXIES[i], 7000)
       .then(function (res) {
         if (!res.ok) throw new Error("bad status");
         return res.text();
