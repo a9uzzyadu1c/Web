@@ -1,7 +1,15 @@
 (function () {
   "use strict";
 
-  var API_URL = "https://www.gamerpower.com/api/giveaways?platform=epic-games-store,steam&type=game&sort-by=date";
+  var TARGET_URL = "https://www.gamerpower.com/api/giveaways?platform=epic-games-store,steam&type=game&sort-by=date";
+
+  // GamerPower's API doesn't send CORS headers for browser fetches from
+  // custom domains, so we route through a public CORS proxy. Two are
+  // listed in case the first one is down or rate-limited.
+  var PROXIES = [
+    "https://api.allorigins.win/raw?url=" + encodeURIComponent(TARGET_URL),
+    "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(TARGET_URL)
+  ];
 
   var epicEl = document.getElementById("epicGames");
   var steamEl = document.getElementById("steamGames");
@@ -61,11 +69,22 @@
     });
   }
 
-  fetch(API_URL)
-    .then(function (res) {
-      if (!res.ok) throw new Error("Bad response");
-      return res.json();
-    })
+  function tryProxy(i) {
+    if (i >= PROXIES.length) return Promise.reject(new Error("all proxies failed"));
+    return fetch(PROXIES[i])
+      .then(function (res) {
+        if (!res.ok) throw new Error("bad status");
+        return res.text();
+      })
+      .then(function (text) {
+        return JSON.parse(text);
+      })
+      .catch(function () {
+        return tryProxy(i + 1);
+      });
+  }
+
+  tryProxy(0)
     .then(function (data) {
       var list = Array.isArray(data) ? data : (data && data.giveaways) || [];
       var epic = list.filter(function (g) {
