@@ -177,6 +177,33 @@
     { label: "Boxed", run: function (t) { return "『" + t + "』"; } }
   ];
 
+  /* Decorative "fancy" styles: each just wraps an already-verified font
+     above in a different pair of border symbols. This list can grow as
+     large as you like — add a row to DECOR below and a new style appears,
+     no new Unicode math needed since the fonts themselves are reused. */
+  function plain(t) { return t; }
+  var DECOR = [
+    ["「", "」", bold], ["【", "】", smallCaps], ["≪", "≫", italic], ["⟪", "⟫", script],
+    ["✦", "✦", bold], ["✧", "✧", sans], ["☆", "☆", plain], ["★", "★", boldItalic],
+    ["♛", "♛", bold], ["⚡", "⚡", sansBold], ["▄▀", "▀▄", plain], ["•° ", " °•", script],
+    ["-ˏˋ ", " ˊˎ-", plain], ["彡 ", " ミ", bold], ["ミ ", " 彡", smallCaps],
+    ["--", "--", plain], ["~", "~", italic], ["*", "*", bold], ["[", "]", monospace],
+    ["{", "}", doubleStruck], ["|", "|", plain], ["‖", "‖", bold], ["✾", "✾", plain],
+    ["❁", "❁", smallCaps], ["⚙", "⚙", monospace], ["♕", "♕", boldScript],
+    ["◆", "◆", bold], ["◇", "◇", plain], ["⚑", "⚑", sans], ["☣", "☣", bold],
+    ["☢", "☢", smallCaps], ["♪", "♪", script], ["🔥", "🔥", bold], ["💥", "💥", boldItalic],
+    ["◎", "◎", plain], ["➳ ", " ➳", smallCaps], ["~•~ ", " ~•~", plain],
+    ["꧁", "꧂", bold], ["ঔৣ ☬", "☬ ঔৣ", bold], ["︻デ═一 ", "", plain],
+    ["⌜", "⌟", sansBold], ["「ᴳᵒᵈ」", "", smallCaps]
+  ];
+  DECOR.forEach(function (d, i) {
+    var prefix = d[0], suffix = d[1], base = d[2];
+    STYLES.push({
+      label: "Fancy Style " + (i + 1),
+      run: function (t) { return prefix + base(t) + suffix; }
+    });
+  });
+
   /* ---------------- render ---------------- */
 
   function escapeHTML(str) {
