@@ -248,10 +248,7 @@
         '<button class="copy-btn" type="button" aria-label="Copy ' + escapeHTML(style.label) + '">' + copyIconSVG() + "</button>";
 
       var btn = row.querySelector(".copy-btn");
-      btn.addEventListener("click", function () {
-        // spaces are swapped for Ī only in the copied text, not in the on-screen preview
-        copyText(text.split(" ").join("Ī"), btn);
-      });
+      btn.addEventListener("click", function () { copyText(text, btn); });
       fontList.appendChild(row);
     });
   }
