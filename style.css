@@ -582,6 +582,34 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .tool-input:focus { border-color: var(--text-faint); }
 .tool-input::placeholder { color: var(--text-faint); }
 
+.tool-hint {
+  margin-top: .7rem;
+  font-size: .92rem;
+  color: var(--text-faint);
+}
+.hint-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 .45em;
+  margin: 0 .2em;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1.7;
+  color: #ffd166;
+  background: rgba(255, 200, 80, .16);
+  border: 1px solid rgba(255, 200, 80, .45);
+  border-radius: 6px;
+  transition: background .2s var(--ease-out), border-color .2s var(--ease-out), color .2s var(--ease-out);
+}
+.hint-copy:hover { background: rgba(255, 200, 80, .26); }
+.hint-copy.is-copied {
+  color: #7dffb4;
+  background: rgba(120, 255, 180, .2);
+  border-color: rgba(120, 255, 180, .5);
+}
+
 .tab-bar {
   display: flex;
   gap: .5rem;
