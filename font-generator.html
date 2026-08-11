@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08080a">
+<meta name="description" content="Stylish BGMI/PUBG font and symbol generator by A9uzzOG.">
+<title>Font & Symbol Generator — A9uzzOG</title>
+
+<script>
+  (function(){
+    var t = localStorage.getItem('theme');
+    if(t === 'light'){ document.documentElement.setAttribute('data-theme','light'); }
+  })();
+</script>
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<header class="site-header">
+  <a href="index.html" class="brand">A9uzz<span>OG</span></a>
+
+  <div class="header-actions">
+    <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light theme">
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+    </button>
+
+    <button id="navToggle" class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav id="navOverlay" class="nav-overlay" aria-hidden="true">
+  <div class="nav-overlay__backdrop" data-close></div>
+  <div class="nav-overlay__panel">
+    <button class="nav-close" type="button" data-close aria-label="Close menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+    <ul class="nav-list">
+      <li style="--i:0"><a href="index.html" data-close><span class="nav-list__title">Home</span><span class="nav-list__desc">Start here</span></a></li>
+      <li style="--i:1"><a href="about.html" data-close><span class="nav-list__title">About</span><span class="nav-list__desc">The short version</span></a></li>
+      <li style="--i:2"><a href="projects.html" data-close><span class="nav-list__title">Projects</span><span class="nav-list__desc">Recent builds</span></a></li>
+      <li style="--i:3"><a href="downloads.html" data-close><span class="nav-list__title">Downloads</span><span class="nav-list__desc">Get the files</span></a></li>
+      <li style="--i:4"><a href="tools.html" data-close><span class="nav-list__title">Tools</span><span class="nav-list__desc">Free utilities</span></a></li>
+      <li style="--i:5"><a href="contact.html" data-close><span class="nav-list__title">Contact</span><span class="nav-list__desc">Say hello</span></a></li>
+    </ul>
+    <div class="nav-overlay__footer">
+      <span>a9uzzyadu1c@gmail.com</span>
+      <span>&copy; 2026 A9uzzOG</span>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="section page-section">
+    <p class="eyebrow reveal">Tools</p>
+    <h1 class="section-title reveal">Stylish Name &amp; Font Generator</h1>
+    <p class="section-lede reveal">
+      Type a name below and copy it instantly in dozens of BGMI/PUBG-ready fonts. Symbols and naming tips are in the tabs.
+    </p>
+
+    <input type="text" id="nameInput" class="tool-input reveal" placeholder="Type your name…" maxlength="40" autocomplete="off">
+
+    <div class="tab-bar reveal">
+      <button class="tab-btn is-active" type="button" data-tab="fonts">Fonts</button>
+      <button class="tab-btn" type="button" data-tab="symbols">Symbols</button>
+      <button class="tab-btn" type="button" data-tab="tips">Tips</button>
+    </div>
+
+    <div id="fontsPanel" class="tab-panel" data-panel="fonts">
+      <div id="fontList" class="font-list">
+        <p class="tool-empty">Type a name above to see it in different fonts.</p>
+      </div>
+    </div>
+
+    <div id="symbolsPanel" class="tab-panel" data-panel="symbols" hidden>
+      <p class="tool-empty">Tap any symbol to copy it.</p>
+
+      <div class="symbol-category">
+        <p class="symbol-category__title">Stars &amp; Sparkles</p>
+        <div class="symbol-grid">
+          <button class="symbol-btn" type="button">★</button>
+          <button class="symbol-btn" type="button">☆</button>
+          <button class="symbol-btn" type="button">✦</button>
+          <button class="symbol-btn" type="button">✧</button>
+          <button class="symbol-btn" type="button">✩</button>
+          <button class="symbol-btn" type="button">✪</button>
+          <button class="symbol-btn" type="button">✫</button>
+          <button class="symbol-btn" type="button">✬</button>
+          <button class="symbol-btn" type="button">✭</button>
+          <button class="symbol-btn" type="button">✮</button>
+          <button class="symbol-btn" type="button">✯</button>
+          <button class="symbol-btn" type="button">⭐</button>
+          <button class="symbol-btn" type="button">🌟</button>
+        </div>
+      </div>
+
+      <div class="symbol-category">
+        <p class="symbol-category__title">Hearts</p>
+        <div class="symbol-grid">
+          <button class="symbol-btn" type="button">♥</button>
+          <button class="symbol-btn" type="button">♡</button>
+          <button class="symbol-btn" type="button">❤</button>
+          <button class="symbol-btn" type="button">❣</button>
+          <button class="symbol-btn" type="button">❦</button>
+          <button class="symbol-btn" type="button">❧</button>
+          <button class="symbol-btn" type="button">💕</button>
+          <button class="symbol-btn" type="button">💖</button>
+          <button class="symbol-btn" type="button">💘</button>
+          <button class="symbol-btn" type="button">💝</button>
+        </div>
+      </div>
+
+      <div class="symbol-category">
+        <p class="symbol-category__title">Arrows</p>
+        <div class="symbol-grid">
+          <button class="symbol-btn" type="button">→</button>
+          <button class="symbol-btn" type="button">←</button>
+          <button class="symbol-btn" type="button">↑</button>
+          <button class="symbol-btn" type="button">↓</button>
+          <button class="symbol-btn" type="button">↔</button>
+          <button class="symbol-btn" type="button">↕</button>
+          <button class="symbol-btn" type="button">➜</button>
+          <button class="symbol-btn" type="button">➤</button>
+          <button class="symbol-btn" type="button">➔</button>
+          <button class="symbol-btn" type="button">⇒</button>
+          <button class="symbol-btn" type="button">⇐</button>
+          <button class="symbol-btn" type="button">➳</button>
+        </div>
+      </div>
+
+      <div class="symbol-category">
+        <p class="symbol-category__title">Brackets &amp; Dividers</p>
+        <div class="symbol-grid">
+          <button class="symbol-btn" type="button">『</button>
+          <button class="symbol-btn" type="button">』</button>
+          <button class="symbol-btn" type="button">「</button>
+          <button class="symbol-btn" type="button">」</button>
+          <button class="symbol-btn" type="button">【</button>
+          <button class="symbol-btn" type="button">】</button>
+          <button class="symbol-btn" type="button">《</button>
+          <button class="symbol-btn" type="button">》</button>
+          <button class="symbol-btn" type="button">〈</button>
+          <button class="symbol-btn" type="button">〉</button>
+          <button class="symbol-btn" type="button">≺</button>
+          <button class="symbol-btn" type="button">≻</button>
+        </div>
+      </div>
+
+      <div class="symbol-category">
+        <p class="symbol-category__title">Borders &amp; Frames</p>
+        <div class="symbol-grid">
+          <button class="symbol-btn" type="button">꧁</button>
+          <button class="symbol-btn" type="button">꧂</button>
+          <button class="symbol-btn" type="button">⟪</button>
+          <button class="symbol-btn" type="button">⟫</button>
+          <button class="symbol-btn" type="button">═</button>
+          <button class="symbol-btn" type="button">▄</button>
+          <button class="symbol-btn" type="button">█</button>
+          <button class="symbol-btn" type="button">▌</button>
+          <button class="symbol-btn" type="button">▐</button>
+          <button class="symbol-btn" type="button">░</button>
+          <button class="symbol-btn" type="button">▒</button>
+          <button class="symbol-btn" type="button">▓</button>
+        </div>
+      </div>
+
+      <div class="symbol-category">
+        <p class="symbol-category__title">Gaming</p>
+        <div class="symbol-grid">
+          <button class="symbol-btn" type="button">☠</button>
+          <button class="symbol-btn" type="button">⚔</button>
+          <button class="symbol-btn" type="button">⚡</button>
+          <button class="symbol-btn" type="button">🎯</button>
+          <button class="symbol-btn" type="button">🏆</button>
+          <button class="symbol-btn" type="button">🔫</button>
+          <button class="symbol-btn" type="button">💀</button>
+          <button class="symbol-btn" type="button">🎮</button>
+        </div>
+      </div>
+
+      <div class="symbol-category">
+        <p class="symbol-category__title">Greek &amp; Misc</p>
+        <div class="symbol-grid">
+          <button class="symbol-btn" type="button">Ω</button>
+          <button class="symbol-btn" type="button">α</button>
+          <button class="symbol-btn" type="button">β</button>
+          <button class="symbol-btn" type="button">γ</button>
+          <button class="symbol-btn" type="button">δ</button>
+          <button class="symbol-btn" type="button">λ</button>
+          <button class="symbol-btn" type="button">Σ</button>
+          <button class="symbol-btn" type="button">Φ</button>
+          <button class="symbol-btn" type="button">Ψ</button>
+          <button class="symbol-btn" type="button">Δ</button>
+        </div>
+      </div>
+
+      <div class="symbol-category">
+        <p class="symbol-category__title">Punctuation &amp; Currency</p>
+        <div class="symbol-grid">
+          <button class="symbol-btn" type="button">™</button>
+          <button class="symbol-btn" type="button">©</button>
+          <button class="symbol-btn" type="button">®</button>
+          <button class="symbol-btn" type="button">‰</button>
+          <button class="symbol-btn" type="button">§</button>
+          <button class="symbol-btn" type="button">¶</button>
+          <button class="symbol-btn" type="button">†</button>
+          <button class="symbol-btn" type="button">‡</button>
+          <button class="symbol-btn" type="button">•</button>
+          <button class="symbol-btn" type="button">‣</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="tipsPanel" class="tab-panel" data-panel="tips" hidden>
+      <div class="tips-content">
+        <p>This section is yours to edit — open <code>font-generator.html</code>, find the "Tips" panel below, and replace these placeholder lines with your own advice for picking a good in-game name.</p>
+        <ul>
+          <li>Add your first tip here.</li>
+          <li>Add your second tip here.</li>
+          <li>Add your third tip here.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>&copy; 2026 A9uzzOG. All rights reserved.</span>
+  <button id="toTop" class="icon-btn" type="button" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12.5v-9M3.5 7l4.5-4.5L12.5 7"/></svg>
+  </button>
+</footer>
+
+<script src="script.js"></script>
+<script src="font-generator.js"></script>
+</body>
+</html>
