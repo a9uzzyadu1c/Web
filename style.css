@@ -800,3 +800,38 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .home-section { padding-left: var(--pad-x); padding-right: var(--pad-x); }
   .home-section__inner { border-radius: 22px; }
 }
+/* ---------------- phone layout refinements ---------------- */
+@media (max-width: 640px) {
+  .site-header { padding-top: max(.65rem, env(safe-area-inset-top)); padding-bottom: .65rem; }
+  .nav-overlay__panel {
+    height: 100dvh;
+    min-height: 100svh;
+    overflow-y: auto;
+    padding: max(5rem, calc(env(safe-area-inset-top) + 4.5rem)) 1.35rem max(1.5rem, env(safe-area-inset-bottom));
+  }
+  .nav-list a { flex-direction: column; align-items: flex-start; gap: .05rem; padding: .85rem 0; }
+  .nav-list a:hover { gap: .05rem; }
+  .nav-list__title { font-size: clamp(1.8rem, 8vw, 2.4rem); line-height: 1.05; }
+  .nav-list__desc { font-size: .72rem; }
+  .nav-overlay__footer { flex-direction: column; gap: .35rem; padding-top: 1.2rem; font-size: .7rem; }
+  .hero { min-height: clamp(28rem, 70svh, 40rem); gap: 1.2rem; padding: 4rem 1.35rem; }
+  .hero__title { max-width: 12ch; font-size: clamp(2.55rem, 11vw, 4rem); line-height: .98; }
+  .hero__title br { display: none; }
+  .hero .eyebrow { font-size: .68rem; letter-spacing: .1em; }
+  .home-section { padding: 3.5rem 1.1rem; }
+  .home-contact { padding-top: 0; }
+  .home-section__inner { padding: 1.5rem 1.2rem; border-radius: 20px; }
+  .home-section .section-title { font-size: clamp(1.8rem, 8vw, 2.4rem); line-height: 1.08; }
+  .home-section .section-lede { font-size: 1rem; }
+  .home-section .email-copy { width: 100%; max-width: 100%; justify-content: space-between; gap: .45rem; padding: .8rem .85rem; font-size: clamp(.68rem, 3.5vw, .88rem); overflow-wrap: anywhere; }
+  .home-section .email-copy span { min-width: 0; overflow-wrap: anywhere; }
+  .home-section .social-links { gap: .55rem; }
+  .home-section .social-link { flex: 1 1 auto; justify-content: center; padding: .7rem .85rem; font-size: .85rem; }
+}
+@media (max-width: 360px) {
+  .hero__title { font-size: 2.45rem; }
+  .home-section { padding-left: .85rem; padding-right: .85rem; }
+  .home-section__inner { padding-left: 1rem; padding-right: 1rem; }
+  .home-section .social-links { flex-direction: column; }
+  .home-section .social-link { width: 100%; justify-content: flex-start; }
+}
