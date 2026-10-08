@@ -762,3 +762,41 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .reveal { opacity: 1; transform: none; }
   .nav-list a { transform: none; }
 }
+
+/* ---------------- home page polish ---------------- */
+.home-section { max-width: none; padding-top: clamp(4.5rem, 9vw, 8rem); padding-bottom: clamp(4.5rem, 9vw, 8rem); }
+.home-section__inner {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4.25rem);
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: linear-gradient(140deg, color-mix(in srgb, var(--surface) 96%, var(--text) 4%), var(--bg-soft));
+  box-shadow: 0 24px 80px -56px color-mix(in srgb, var(--text) 32%, transparent), 0 1px 0 color-mix(in srgb, var(--text) 8%, transparent) inset;
+}
+.home-section__inner::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(32rem, 75vw);
+  aspect-ratio: 1;
+  right: -16%;
+  top: -75%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--text) 9%, transparent), transparent 68%);
+  pointer-events: none;
+}
+.home-about .section-title, .home-contact .section-title { max-width: none; }
+.home-section .section-lede { max-width: 58ch; }
+.home-contact { padding-top: 0; }
+.home-section .email-copy { background: color-mix(in srgb, var(--surface) 78%, transparent); }
+.home-section .social-link { background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.home-section .social-link:hover { box-shadow: 0 8px 24px -18px color-mix(in srgb, var(--text) 50%, transparent); }
+
+@media (max-width: 640px) {
+  .home-section { padding-left: var(--pad-x); padding-right: var(--pad-x); }
+  .home-section__inner { border-radius: 22px; }
+}
