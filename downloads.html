@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#08080a">
-<meta name="description" content="Download files and source archives from A9uzzOG.">
+<meta name="description" content="Official A9uzzOG downloads: get the latest Android app build and browse the project source.">
 <title>Downloads — A9uzzOG</title>
 
 <script>
@@ -60,30 +60,52 @@
 </nav>
 
 <main>
-  <section class="section page-section">
-    <p class="eyebrow reveal">Downloads</p>
-    <h1 class="section-title reveal">Grab the files</h1>
+  <section class="section page-section download-page">
+    <div class="download-intro reveal">
+      <p class="eyebrow">Official downloads</p>
+      <h1 class="section-title">Apps and project files</h1>
+      <p class="section-lede">Get the latest build or browse the project source. App downloads are hosted on GitHub Releases.</p>
+    </div>
 
-    <div class="grid grid--tight reveal">
-      <article class="card card--download">
-        <div class="card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+    <article class="download-feature card reveal" aria-labelledby="onlyproTitle">
+      <div class="download-feature__top">
+        <div class="download-feature__icon" aria-hidden="true">OP</div>
+        <div class="download-feature__heading">
+          <p class="download-feature__eyebrow">Android app</p>
+          <h2 id="onlyproTitle">OnlyPro</h2>
+          <p class="download-feature__description">The latest game build by a9uzzyadu1c.</p>
         </div>
-        <div class="card__body">
-          <h3>OnlyPro.apk</h3>
-          <p>first game created by a9uzzyadu1c</p>
-        </div>
-        <a class="btn btn--ghost" href="https://github.com/a9uzzyadu1c/Web/releases/download/apk/mercy.apk" download>Download</a>
+        <span class="download-feature__badge"><span></span> Latest release</span>
+      </div>
+
+      <div class="download-feature__meta" aria-label="Download details">
+        <span><strong>Platform</strong> Android</span>
+        <span><strong>Format</strong> APK</span>
+        <span><strong>File size</strong> 32.8 MB</span>
+      </div>
+
+      <div class="download-feature__actions">
+        <a class="btn btn--primary" href="https://github.com/a9uzzyadu1c/Web/releases/download/apk/mercy.apk">
+          <span>Download APK</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v9m0 0-3-3m3 3 3-3M2.5 11v2A.5.5 0 0 0 3 13.5h10a.5.5 0 0 0 .5-.5v-2"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="https://github.com/a9uzzyadu1c/Web/releases/tag/apk" target="_blank" rel="noopener noreferrer">View release details <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="download-feature__footnote">File is hosted securely through GitHub Releases.</p>
+    </article>
+
+    <div class="download-support grid grid--tight">
+      <article class="card download-support__card">
+        <span class="card__tag">SOURCE</span>
+        <h3>Browse the project</h3>
+        <p>Explore the website source and project files on GitHub.</p>
+        <a class="card__link" href="https://github.com/a9uzzyadu1c/Web" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">↗</span></a>
       </article>
-      <article class="card card--download">
-        <div class="card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-        </div>
-        <div class="card__body">
-          <h3>ZIP</h3>
-          <p>Source archive</p>
-        </div>
-        <a class="btn btn--ghost" href="files/source.zip" download>Download</a>
+      <article class="card download-support__card">
+        <span class="card__tag">SUPPORT</span>
+        <h3>Need help?</h3>
+        <p>Get in touch if you have a question about a download.</p>
+        <a class="card__link" href="mailto:a9uzzyadu1c@gmail.com">Send an email <span aria-hidden="true">↗</span></a>
       </article>
     </div>
   </section>
