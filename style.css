@@ -862,7 +862,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 .download-feature__top, .download-feature__meta, .download-feature__actions, .download-feature__footnote { position: relative; z-index: 1; }
 .download-feature__top { display: flex; align-items: center; gap: 1rem; }
-.download-feature__icon { display: grid; place-items: center; width: 54px; height: 54px; flex: 0 0 54px; border-radius: 16px; background: linear-gradient(145deg, var(--shine-1), var(--shine-2)); color: var(--on-shine); font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; letter-spacing: -.06em; }
+.download-feature__icon { display: grid; place-items: center; width: 54px; height: 54px; flex: 0 0 54px; border-radius: 16px; background: color-mix(in srgb, #3ddc84 14%, var(--surface-2)); border: 1px solid color-mix(in srgb, #3ddc84 28%, transparent); color: #3ddc84; }
+.download-feature__icon svg { width: 30px; height: 30px; fill: currentColor; }
 .download-feature__heading { min-width: 0; flex: 1; }
 .download-feature__eyebrow { margin: 0 0 .15rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); }
 .download-feature__heading h2 { margin: 0; font-size: clamp(1.3rem, 3vw, 1.8rem); }
@@ -882,9 +883,11 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .download-page { padding-top: 3rem; }
   .download-intro { margin-bottom: 1.75rem; }
   .download-feature { padding: 1.3rem; border-radius: 20px; }
-  .download-feature__top { align-items: flex-start; flex-wrap: wrap; gap: .8rem; }
-  .download-feature__icon { width: 46px; height: 46px; flex-basis: 46px; border-radius: 14px; }
-  .download-feature__badge { margin-left: 54px; margin-top: -.4rem; }
+  .download-feature__top { display: grid; grid-template-columns: 46px minmax(0, 1fr); align-items: start; gap: .65rem .8rem; }
+  .download-feature__heading { grid-column: 2; }
+  .download-feature__icon { grid-column: 1; grid-row: 1; width: 46px; height: 46px; }
+  .download-feature__badge { grid-column: 2; justify-self: start; margin: 0; }
+  .download-feature__description { font-size: clamp(.64rem, 3.2vw, .86rem); line-height: 1.3; letter-spacing: -.01em; white-space: nowrap; }
   .download-feature__meta { gap: .65rem 1rem; }
   .download-feature__actions { display: grid; grid-template-columns: 1fr; }
   .download-feature__actions .btn { justify-content: center; width: 100%; }
